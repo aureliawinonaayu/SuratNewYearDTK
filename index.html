@@ -8,6 +8,7 @@
 body {
   background: #f5efe6;
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
   height: 100vh;
@@ -83,6 +84,19 @@ body {
   opacity: 1;
   transform: translateY(120px);
 }
+
+/* BUTTON */
+#playBtn {
+  margin-top: 25px;
+  padding: 12px 28px;
+  background: #c7a17a;
+  color: white;
+  border: none;
+  border-radius: 30px;
+  font-family: Georgia, serif;
+  font-size: 14px;
+  cursor: pointer;
+}
 </style>
 </head>
 
@@ -94,40 +108,35 @@ body {
 
   <img class="wax" src="wax.png">
 
-<div class="letter">
-  <img src="surat1.jpg">
-  <img src="surat2.jpg">
-  <img src="surat3.jpg">
+  <div class="letter">
+    <img src="surat1.jpg">
+    <img src="surat2.jpg">
+    <img src="surat3.jpg">
 
-  <!-- FOTO KALIAN -->
-  <img src="kita.jpg" style="
-    margin-top: 30px;
-    border-radius: 12px;
-    box-shadow: 0 10px 25px rgba(0,0,0,0.15);
-  ">
-</div>
-
+    <!-- FOTO KALIAN -->
+    <img src="kita.jpg" style="
+      margin-top: 30px;
+      border-radius: 14px;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+    ">
+  </div>
 
   <img class="flower" src="flower.png">
 </div>
 
-<audio id="music" src="music.mp3"></audio>
+<button id="playBtn" onclick="playMusic()">PLAY MUSIC</button>
+
+<audio id="music" src="music.mp3" loop></audio>
 
 <script>
-let musicStarted = false;
-
 function openEnvelope() {
-  const env = document.querySelector('.envelope');
-  const music = document.getElementById('music');
+  document.querySelector('.envelope').classList.add('open');
+}
 
-  if (!musicStarted) {
-    music.play();
-    musicStarted = true;
-    return;
-  }
-
-  env.classList.add('open');
+function playMusic() {
+  document.getElementById('music').play();
 }
 </script>
 
-
+</body>
+</html>
