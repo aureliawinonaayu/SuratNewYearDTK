@@ -106,11 +106,20 @@ body {
 <audio id="music" src="music.mp3"></audio>
 
 <script>
+let musicStarted = false;
+
 function openEnvelope() {
-  document.querySelector('.envelope').classList.add('open');
-  document.getElementById('music').play();
+  const env = document.querySelector('.envelope');
+  const music = document.getElementById('music');
+
+  if (!musicStarted) {
+    music.play();
+    musicStarted = true;
+    return;
+  }
+
+  env.classList.add('open');
 }
 </script>
 
-</body>
-</html>
+
