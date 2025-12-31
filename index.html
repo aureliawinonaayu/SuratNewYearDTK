@@ -111,19 +111,14 @@ body {
   <img class="flower" src="flower.png">
 </div>
 
-<audio id="music" src="music.mp3"></audio>
 
 <script>
-let musicStarted = false;
+
 
 function openEnvelope() {
   const env = document.querySelector('.envelope');
-  const music = document.getElementById('music');
-
-  if (!musicStarted) {
-    music.play();
-    musicStarted = true;
-    return;
+  
+ 
   }
 
   env.classList.add('open');
