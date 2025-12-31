@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Surat</title>
+
+<style>
+body {
+  background: #f5efe6;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  font-family: Georgia, serif;
+}
+
+.envelope {
+  position: relative;
+  width: 320px;
+  height: 210px;
+  cursor: pointer;
+}
+
+.back {
+  position: absolute;
+  inset: 0;
+  background: #e9dcc8;
+  border-radius: 8px;
+}
+
+.flap {
+  position: absolute;
+  inset: 0;
+  background: #d6c2a4;
+  clip-path: polygon(0 0, 50% 52%, 100% 0);
+  transform-origin: top;
+  transition: 1.2s ease;
+}
+
+.wax {
+  position: absolute;
+  top: 60px;
+  left: 50%;
+  width: 60px;
+  transform: translateX(-50%);
+}
+
+.letter {
+  position: absolute;
+  bottom: 12px;
+  left: 10px;
+  width: 300px;
+  height: 0;
+  background: #fdf9f1;
+  overflow-y: auto;
+  transition: height 1.5s ease;
+}
+
+.letter img {
+  width: 100%;
+  display: block;
+  margin-bottom: 20px;
+}
+
+.flower {
+  position: absolute;
+  top: -30px;
+  right: -10px;
+  width: 80px;
+  opacity: 0;
+  transition: 1.8s ease;
+}
+
+.open .flap {
+  transform: rotateX(-160deg);
+}
+
+.open .letter {
+  height: 380px;
+}
+
+.open .flower {
+  opacity: 1;
+  transform: translateY(120px);
+}
+</style>
+</head>
+
+<body>
+
+<div class="envelope" onclick="openEnvelope()">
+  <div class="back"></div>
+  <div class="flap"></div>
+
+  <img class="wax" src="wax.png">
+
+  <div class="letter">
+    <img src="surat1.jpg">
+    <img src="surat2.jpg">
+    <img src="surat3.jpg">
+  </div>
+
+  <img class="flower" src="flower.png">
+</div>
+
+<audio id="music" src="music.mp3"></audio>
+
+<script>
+function openEnvelope() {
+  document.querySelector('.envelope').classList.add('open');
+  document.getElementById('music').play();
+}
+</script>
+
+</body>
+</html>
