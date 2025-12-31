@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
 <meta charset="UTF-8">
 <title>Surat</title>
@@ -62,10 +62,6 @@ body {
   margin-bottom: 20px;
 }
 
-.letter img:last-child {
-  margin-top: 30px;
-}
-
 .flower {
   position: absolute;
   top: -30px;
@@ -98,29 +94,38 @@ body {
 
   <img class="wax" src="wax.png">
 
-  <div class="letter">
-    <img src="surat1.jpg">
-    <img src="surat2.jpg">
-    <img src="surat3.jpg">
-    <img src="kita.jpg">
-  </div>
+<div class="letter">
+  <img src="surat1.jpg">
+  <img src="surat2.jpg">
+  <img src="surat3.jpg">
+
+  <!-- FOTO KALIAN -->
+  <img src="kita.jpg" style="
+    margin-top: 30px;
+    border-radius: 12px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+  ">
+</div>
+
 
   <img class="flower" src="flower.png">
 </div>
 
-<audio id="music" preload="auto">
-  <source src="music.mp3" type="audio/mpeg">
-</audio>
+<audio id="music" src="music.mp3"></audio>
 
 <script>
-function openEnvelope() {
-  document.querySelector('.envelope').classList.add('open');
+let musicStarted = false;
 
-  const music = document.getElementById("music");
-  music.volume = 0.7;
-  music.play();
+function openEnvelope() {
+  const env = document.querySelector('.envelope');
+  const music = document.getElementById('music');
+
+  if (!musicStarted) {
+    music.play();
+    musicStarted = true;
+    return;
+  }
+
+  env.classList.add('open');
 }
 </script>
-
-</body>
-</html>
