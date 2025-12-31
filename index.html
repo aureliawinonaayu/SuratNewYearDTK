@@ -97,6 +97,19 @@ body {
   font-size: 14px;
   cursor: pointer;
 }
+  .music-btn {
+  margin: 30px auto;
+  display: block;
+  padding: 14px 26px;
+  border-radius: 30px;
+  border: none;
+  background: #c8a27c;
+  color: white;
+  font-family: Georgia, serif;
+  font-size: 14px;
+  cursor: pointer;
+}
+
 </style>
 </head>
 
@@ -123,6 +136,9 @@ body {
 
   <img class="flower" src="flower.png">
 </div>
+<button onclick="playMusic()" class="music-btn">
+  ▶ Play Music
+</button>
 
 <button id="playBtn" onclick="playMusic()">PLAY MUSIC</button>
 
@@ -137,6 +153,18 @@ function playMusic() {
   document.getElementById('music').play();
 }
 </script>
-
+<audio id="music" preload="auto">
+  <source src="music.mp3" type="audio/mpeg">
+</audio>
+<script>
+function playMusic() {
+  const audio = document.getElementById("music");
+  audio.volume = 0.7;
+  audio.play().catch(err => {
+    alert("Musik gagal diputar 😭");
+    console.error(err);
+  });
+}
+</script>
 </body>
 </html>
